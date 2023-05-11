@@ -1,3 +1,38 @@
 <p>Hello 大家好</p>
 <p>我是且听风呤，这是我的个人网站。 </p>
 <p>很高兴你来到这里</p>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>猜数字游戏</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>猜数字游戏</h1>
+    <p>请猜一个1到100之间的整数：</p>
+    <input type="text" id="guessInput">
+    <button onclick="checkGuess()">提交</button>
+    <p id="result"></p>
+
+    <script>
+        function checkGuess() {
+            var guess = parseInt(document.getElementById('guessInput').value);
+            var randomNumber = Math.floor(Math.random() * 100) + 1;
+
+            if (guess === randomNumber) {
+                document.getElementById('result').innerHTML = '恭喜，猜对了！';
+            } else if (guess < randomNumber) {
+                document.getElementById('result').innerHTML = '太小了，再试一次。';
+            } else {
+                document.getElementById('result').innerHTML = '太大了，再试一次。';
+            }
+        }
+    </script>
+</body>
+</html>
